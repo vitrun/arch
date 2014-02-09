@@ -1,0 +1,12 @@
+{
+  "name": "arch",
+  "description": "fetch web page and clean it up.",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.4.8",
+    "sanitizer": "0.1.x",
+    "winston": "0.7.x",
+    "node-readability": "0.3.x"
+  }
+}
