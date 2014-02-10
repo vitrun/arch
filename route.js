@@ -17,7 +17,7 @@ function stripHTML(html) {
 
     // RegEx to remove needless newlines and whitespace.
     // See: http://stackoverflow.com/questions/816085/removing-redundant-line-breaks-with-regular-expressions
-    clean = clean.replace(/(?:(?:\r\n|\r|\n)\s*){2,}/ig, "\n");
+    clean = clean.replace("\n", '').replace(/(?:(?:\r\n|\r|\n)\s*){2,}/ig, "<br/><br/>");
 
     // Return the final string, minus any leading/trailing whitespace.
     return clean.trim();
@@ -33,7 +33,8 @@ function cleanup(req, res){
             }
             obj["title"] = doc.title.trim();
             obj["ok"] = true
-            obj["content"] = stripHTML(doc.content || "");
+            content = stripHTML(doc.content || "");
+            obj["content"] = content;
             //console.log('%j', obj);
             res.json(obj);
         });
